@@ -1,0 +1,146 @@
+\documentclass{./solution}
+
+\author{%
+    Bhavishya Desai\\[-1mm]
+    160194
+    \and
+    Nikhil Bansal\\[-1mm]
+    160447
+    \and
+    Nishant Maheshwari\\[-1mm]
+    160458
+    \and
+    Harish Rajagopal\\[-1mm]
+    160552
+    \and
+    Akhil Reddy\\[-1mm]
+    160613
+    \and
+    Sameer Meena\\[-1mm]
+    160616
+}
+
+\setdetails%
+{ECO341A}
+{Econometrics}
+{Assignment}
+
+\begin{document}
+    \maketitle
+
+    \begin{solution}[Wooldridge C6.9]
+        \section*{Part (i)}
+            \begin{table}[H]
+                \caption{Coefficients}
+                \begin{tabularx}{\textwidth}{C C C}
+                    \toprule
+                    Feature & Estimate & p-Value \\
+                    \midrule
+                    (Intercept) & 34.98355 & 9.58e-07 \\
+                    exper       &  2.33702 & 2.14e-08 \\
+                    age         & -1.06174 & 0.000371 \\
+                    coll        & -1.27589 & 0.004892 \\
+                    expersq     & -0.07577 & 0.001377 \\
+                    \bottomrule
+                \end{tabularx}
+            \end{table}
+            \vspace{-5mm}
+            $$ R^2 = 0.1398 $$
+
+        \section*{Part (ii)}
+            The limiting value for experience is 15.
+            This makes sense, as after 15 years of experience, there is not much left to learn.
+            Also, the player must have established his career, and thus gives more chances to his teammates.
+
+        \section*{Part (iii)}
+            This implies that better players must be spending less years in college basketball and more in league NBA.
+            Thus, their values for `\texttt{coll}' will be less.
+
+        \section*{Part (iv)}
+            The p-value for the quadratic of age is 0.2699117.
+            Thus, the coefficient is not significant, and thus it is not needed.
+            This matches with the intuition that, keeping experience and education constant, more age leads to less points, as older players' bodies get weaker.
+
+        \section*{Part (v)}
+            \begin{table}[H]
+                \caption{Coefficients}
+                \begin{tabularx}{\textwidth}{C C C}
+                    \toprule
+                    Feature & Estimate & p-Value \\
+                    \midrule
+                    (Intercept) &  6.792880 &  3.22e-14 \\
+                    points      &  0.077893 &   < 2e-16 \\
+                    exper       &  0.219415 &  1.52e-05 \\
+                    expersq     & -0.007166 &    0.0102 \\
+                    age         & -0.048981 &    0.1623 \\
+                    coll        & -0.040560 &    0.4439 \\
+                    \bottomrule
+                \end{tabularx}
+            \end{table}
+            \vspace{-5mm}
+            $$ R^2 = 0.4872 $$
+
+        \section*{Part (vi)}
+            For joint significance testing, using the F-statistic for the linear hypothesis, the p-value is 0.2912381.
+            This implies that once productivity and seniority are accounted for, age and education do not have significant effects on wages.
+
+        \section*{Code}
+            \inputcode{R}{./c6.9.R}
+
+        \section*{Output}
+            \inputcode{text}{./c6.9.out}
+    \end{solution}
+
+    \begin{solution}[Wooldridge C7.9]
+        \section*{Part (i)}
+            The fraction of families eligible for the 401(k) plan is: 0.392.
+
+        \section*{Part (ii)}
+            \begin{table}[H]
+                \caption{Coefficients}
+                \begin{tabularx}{\textwidth}{C C C}
+                    \toprule
+                    Feature & Estimate & p-Value \\
+                    \midrule
+                    (Intercept) & -5.063e-01 &  4.48e-10 \\
+                    inc         &  1.245e-02 &   < 2e-16 \\
+                    age         &  2.651e-02 &  1.49e-11 \\
+                    male        & -3.533e-03 &      0.77 \\
+                    incsq       & -6.165e-05 &   < 2e-16 \\
+                    agesq       & -3.053e-04 &  1.26e-11 \\
+                    \bottomrule
+                \end{tabularx}
+            \end{table}
+            \vspace{-5mm}
+            $$ R^2 = 0.09428 $$
+
+        \section*{Part (iii)}
+            The coefficients for income and age are significant, but not for gender.
+            This implies that 401(k) eligibility is independent of gender, but dependent on income and age.
+
+        \section*{Part (iv)}
+            There are no fitted values that are negative or greater than one.
+
+        \section*{Part (v)}
+            It is predicted that 2460 families are eligible for a 401(k) plan.
+
+        \section*{Part (vi)}
+            For the 5,638 families not eligible for a 401(k), 81.71\% are predicted to be ineligible.
+            For the 3,637 families eligible for a 401(k), 39.29\% are predicted to be eligible.
+
+        \section*{Part (vii)}
+            The accuracy is not completely descriptive about the model's performance.
+            From the values in the previous part, it seems the model is biased towards predicting ineligibility, which is not evident from the accuracy itself.
+
+        \section*{Part (viii)}
+            If a family has someone with an IRA, the estimated probability is higher by 0.0198.
+            The p-value for the coefficient of `\texttt{pira}' is 0.1053636.
+            Hence, it is not statistically different from zero at the 10\% level of significance.
+
+        \section*{Code}
+            \inputcode{R}{./c7.9.R}
+
+        \section*{Output}
+            \inputcode{text}{./c7.9.out}
+    \end{solution}
+\end{document}

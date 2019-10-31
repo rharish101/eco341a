@@ -1,0 +1,14 @@
+textfiles.ZIP
+textfiles.zip
+*.RAW
+*.raw
+*.DES
+*.des
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+*.xdv
+_minted-report/

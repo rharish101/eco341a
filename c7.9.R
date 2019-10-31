@@ -1,0 +1,38 @@
+dat <- read.table("401KSUBS.RAW")
+colnames(dat) <- c("e401k", "inc", "marr", "male", "age", "fsize", "nettfa", "p401k", "pira", "incsq", "agesq")
+
+# Part (i)
+frac <- mean(dat[["e401k"]])
+cat("Part (i):\n")
+cat("Fraction of eligible families: ", frac, "\n\n")
+
+# Part (ii)
+# model <- glm(e401k ~ inc + age + male + incsq + agesq, data=dat, family="binomial")
+model <- lm(e401k ~ inc + age + male + incsq + agesq, data=dat)
+cat("Part (ii):\nModel summary:\n")
+cat(paste(replicate(50, "-"), collapse=""), "\n")
+print(summary(model))
+cat(paste(replicate(50, "-"), collapse=""), "\n\n")
+
+# Part (iv)
+pred <- predict(model, type='response')
+cat("Part (iv):\n")
+cat("No. of negative fitted values: ", sum(pred < 0), "\n")
+cat("No. of fitted values greater than one: ", sum(pred > 1), "\n\n")
+
+# Part (v)
+quantized <- lapply(pred, function (x) if (x > 0.5) 1 else 0)
+cat("Part (v):\n")
+cat("No. of predicted eligible families: ", Reduce(`+`, quantized), "\n\n")
+
+# Part (vi)
+conf <- table(pred=as.integer(unlist(quantized)), true=dat[["e401k"]])
+cat("Part (vi):\n")
+cat("Percentage of correctly predicted eligible families: ", conf[2,2] * 100 / sum(conf[,2]), "\n")
+cat("Percentage of correctly predicted ineligible families: ", conf[1,1] * 100 / sum(conf[,1]), "\n\n")
+
+# Part (viii)
+new_model <- lm(e401k ~ inc + age + male + incsq + agesq + pira, data=dat)
+cat("Part (viii):\n")
+cat("Coefficient for 'pira' is: ", coef(new_model)["pira"], "\n")
+cat("The p-value for the coefficient of 'pira' is: ", summary(new_model)$coefficients["pira", 4], "\n")
