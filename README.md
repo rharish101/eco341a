@@ -17,9 +17,9 @@ This is the repository for the assignments of the second part of ECO341A, offere
 ## Instructions
 1. Change the working directory to the git root directory.
 2. Run the R scripts and store their output in correspondingly-named `.out` files, as follows:
-  ```
-  Rscript c6.9.R > c6.9.out
-  ```
-  The name of the `.out` file should be the same as the R script file, but with the `.out` extension instead of the `.R` extension.
-  eg. `q_We.RtY.R` => `q_We.RtY.out`
+    ```
+    Rscript c6.9.R > c6.9.out
+    ```
+    The name of the `.out` file should be the same as the R script file, but with the `.out` extension instead of the `.R` extension.
+    eg. `q_We.RtY.R` => `q_We.RtY.out`
 3. Compile the LaTeX report after generating all `.out` files for each R script.
