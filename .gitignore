@@ -4,6 +4,7 @@ textfiles.zip
 *.raw
 *.DES
 *.des
+*.dta
 *.aux
 *.fdb_latexmk
 *.fls
