@@ -91,7 +91,8 @@
             \inputcode{text}{./c6.9.out}
     \end{solution}
 
-    \begin{solution}[Wooldridge C7.9]
+
+ \begin{solution}[Wooldridge C7.9]
         \section*{Part (i)}
             The fraction of families eligible for the 401(k) plan is: 0.3921.
 
@@ -143,4 +144,91 @@
         \section*{Output}
             \inputcode{text}{./c7.9.out}
     \end{solution}
+
+% Bhavishya'code
+
+
+    \begin{solution}[Stock-and-Watson E6.1]
+        \section*{Part (a)}
+            The coefficient of smoker is $-253.23$ i.e. if a mother smokes during 
+            pregnancy it, the \textit{Birthweight} would decrease by $253.23$ units.
+
+        
+            \begin{table}[H]
+                \caption{Coefficients of Regression}
+                \begin{tabularx}{\textwidth}{C C C}
+                    \toprule
+                    Feature & Estimate & p-Value \\
+                    \midrule
+                    (Intercept) & $3432.06$ &  $<$2$\times$ 10$^{-16}$ \\
+                    smoker         &  -253.23 &   $<$ 2$\times$ 10$^{-16}$ \\
+                    
+                    \bottomrule
+                \end{tabularx}
+            \end{table}
+            \vspace{-5mm}
+            
+        \section*{Part (b)}
+            \subsection*{  (i)}
+            From the regression statistics we see that \textit{smoker} is correlated with \textit{alcohol} and \textit{nprevist} and \textit{alcohol} + \textit{nprevist} are determinants for \textit{Birthweight} so omitting 
+            them leads to  omitted variable bias in the regression estimated in (a).
+            
+            \subsection*{ (ii)}
+            Yes there is a substantial change in the coefficient for \tetxit{smoking}.
+            It increases from $-253.23$ to $-217.58$ in presence of \textit{nprevist} and \textit{alcohol}. Therefore, regression in Part(a)
+            suffers from omitted variable bias.
+            
+            \subsection*{(iii)}
+            We know,
+            birthweight = 3051.25 - 217.58$\times$smoking - 30.49$\times$alcohol  + 34.07$\times$nprevist
+            
+            For Jane,
+            
+            birthweight = 3051.25 - 217.58 $\times$ 1 - 30.49$\times$0  + 34.07$\times$ 8 = $3106.228 $ grams
+            
+            \subsection*{(iv)}
+            $R^{2} = 0.0728503$ and $\bar{R}^{2}=0.07192191$.
+            $R^{2}$ and $\bar{R}^{2}$  indicate the sample variance explained 
+            by the regressors.They are very similar because the added variables
+            are significant and correlated.
+            
+        \section*{Part (c)}
+            By using the Frisch-Waugh theorem the coefficient of smoking comes out to be same as Part(b) i.e. 217.58.
+            
+        \section*{Part (d)}
+            \subsection*{(i)}
+            \textit{Tripre1} is excluded from the regression to avoid perfect 
+            multicollinearity since \textit{Tripre1} = 1 only when  \textit{Tripre0},  \textit{Tripre2} and  \textit{Tripre3} are zero.
+            
+            If we include \textit{Tripre1} then it would be linearly expressible
+            using \textit{Tripre0},  \textit{Tripre2} and  \textit{Tripre3} i.e.
+            
+            \[ t1 = 1 - t0 -t2 -t3 \] and would lead to perfect multicollinearity.
+            
+            \subsection*{(ii)}
+            Coefficient of tripre0 is -697.9687 which implies that child of a mother 
+            with zero prenatal visits will have birthweight of 697.9687 less than if she had any prenatal visits.
+            
+            \subsection*{ (iii)}
+            Coefficient of tripre2 is -100.8373 which implies that child of a mother 
+            with first pre natal care in 2nd trimester will have birthweight of 100.8373 less.
+            
+            Coefficient of tripre3 is -136.9553  which implies that child of a mother 
+            with first pre natal care in 3rd trimester will have birthweight of 136.9553 less.
+            
+            \subsection*{ (iv)}
+            The adjusted $\bar{R}^{2}$ is  0.04487327 which is less than Part(b) [0.07192191]. Therefore, the regression in (d) \textbf{DOES NOT} explain a larger fraction of the variance.
+in birth weight than the regression in (b)
+            
+       
+        \section*{Code}
+            \inputcode{R}{./e6.1.R}
+
+        \section*{Output}
+            \inputcode{text}{./e6.1.out}
+    \end{solution}
+    
+    
+   
+    
 \end{document}
