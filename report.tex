@@ -153,12 +153,12 @@
 
             \begin{table}[H]
                 \caption{Coefficients of Regression}
-                \begin{tabularx}{\textwidth}{C C C}
+                \begin{tabularx}{\textwidth}{C C C C}
                     \toprule
-                    Feature & Estimate & p-Value \\
+                    Feature & Estimate & Std. Error & p-Value \\
                     \midrule
-                    (Intercept) & $3432.06$ &  $<$2$\times$ 10$^{-16}$ \\
-                    smoker         &  -253.23 &   $<$ 2$\times$ 10$^{-16}$ \\
+                    (Intercept) & $3432.06$ &  11.87 & $<$2$\times$ 10$^{-16}$ \\
+                    smoker         &  -253.23 & 26.95 &  $<$ 2$\times$ 10$^{-16}$ \\
 
                     \bottomrule
                 \end{tabularx}
@@ -223,4 +223,118 @@
         \section*{Output}
             \inputcode{text}{./e6.1.out}
     \end{solution}
+    
+    \begin{solution}[Wooldridge C7.9]
+        \section*{Part (i)}
+            The fraction of families eligible for the 401(k) plan is: 0.3921.
+
+        \section*{Part (ii)}
+            \begin{table}[H]
+                \caption{Coefficients}
+                \begin{tabularx}{\textwidth}{C C C C}
+                    \toprule
+                    Feature & Estimate & Std. Error & p-Value \\
+                    \midrule
+                    (Intercept) & -5.063$\times$ 10$^{-1}$ & 8.110$\times$ 10$^{-2}$ & 4.48$\times$ 10$^{-10}$ \\
+                    inc         &  1.245$\times$ 10$^{-2}$ & 5.929$\times$ 10$^{-4}$ &  < 2$\times$ 10$^{-16}$ \\
+                    age         &  2.651$\times$ 10$^{-2}$ & 3.922$\times$ 10$^{-3}$ & 1.49$\times$ 10$^{-11}$ \\
+                    male        & -3.533$\times$ 10$^{-3}$ & 1.208$\times$ 10$^{-2}$ &     0.77 \\
+                    incsq       & -6.165$\times$ 10$^{-5}$ & 4.732$\times$ 10$^{-6}$ &  < 2$\times$ 10$^{-16}$ \\
+                    agesq       & -3.053$\times$ 10$^{-4}$ & 4.501$\times$ 10$^{-5}$ & 1.26$\times$ 10$^{-11}$ \\
+                    \bottomrule
+                \end{tabularx}
+            \end{table}
+            \vspace{-5mm}
+            $$ R^2 = 0.09428 $$
+
+        \section*{Part (iii)}
+            The coefficients for income and age are significant, but not for gender.
+            This implies that 401(k) eligibility is independent of gender, but dependent on income and age.
+
+        \section*{Part (iv)}
+            There are no fitted values that are negative or greater than one.
+
+        \section*{Part (v)}
+            It is predicted that 2,460 families are eligible for a 401(k) plan.
+
+        \section*{Part (vi)}
+            For the 5,638 families not eligible for a 401(k), 81.71\% are predicted to be ineligible.
+            For the 3,637 families eligible for a 401(k), 39.29\% are predicted to be eligible.
+
+        \section*{Part (vii)}
+            The accuracy is not completely descriptive about the model's performance.
+            From the values in the previous part, it seems the model is biased towards predicting ineligibility, which is not evident from the accuracy itself.
+
+        \section*{Part (viii)}
+            If a family has someone with an IRA, the estimated probability is higher by 0.0198.
+            The p-value for the coefficient of `\texttt{pira}' is 0.1054.
+            Hence, it is not statistically different from zero at the 10\% level of significance.
+
+        \section*{Code}
+            \inputcode{R}{./c7.9.R}
+
+        \section*{Output}
+            \inputcode{text}{./c7.9.out}
+    \end{solution}
+
+    \begin{solution}[Stock-and-Watson E12.1]
+        \section*{Part (a)}
+            Women with more than two children work less than women 
+            with two children by approximately $5.387$ weeks.
+
+            \begin{table}[H]
+                \caption{Coefficients of Regression}
+                \begin{tabularx}{\textwidth}{C C C C}
+                    \toprule
+                    Feature & Estimate & Std. Error & p-Value \\
+                    \midrule
+                    (Intercept) & $21.068$ &  0.05 & $<$2$\times$ 10$^{-16}$ \\
+                    morekids         &  -5.38 & 0.08 &  $<$ 2$\times$ 10$^{-16}$ \\
+
+                    \bottomrule
+                \end{tabularx}
+            \end{table}
+            \vspace{-5mm}
+
+        \section*{Part (b)}
+            Both \textit{morekids} and \textit{weeksworked} are choice 
+            variables. A women with a positive labor supply
+            might also be a woman who is less likely to have an 
+            additional child. So they are positively correlated. Also fertility data
+            of women with fewer than two children is missing. So we cannot
+            draw any conclusions.
+
+        \section*{Part (c)}
+            Yes, the couples whose first two children are of the same sex more likely to have a third child. The log-odds from running a regression is $.287$
+            therefore the real odds is $e^{.287}$ i.e. $1.33$, which is significant.
+
+        \section*{Part (d)}
+            \textit{samesex} is a valid instrument because it satisfies two basic 
+            conditions,
+            \begin{enumerate}
+                \item \textbf{ Instrument relevance:} The correlation
+                between \textit{morekids} and \textit{samesex} is not equal to zero, it is actually $.07$.
+                \item \textbf{Instrument exogeneity:} The correlation between residuals and \textit{samesex} should be zero. This is not exactly true as the corr is $.018$ but it is sufficiently close to zero.
+            \end{enumerate}
+
+        \section*{Part (e)}
+            No, \textit{samesex} is NOT a weak instrument because the F-statistic
+            value is larger that 10 at 1237.219.
+        
+        \section*{Part (f) }
+            The fertility effect on labor supply is  -6.313 i.e. more 1 unit increase
+            in fertility decreases labor supply by 6.313 weeks. This is statistically
+            significant at 0.001 level. This effect is greater than what estimated in 
+            Part (a).
+        
+        \section*{Part (g) }
+            The coefficient changes from -6.23 to -5.82. This change is not significant because \textit{samesex} is not related to \textit{agem1}, \textit{black}, \textit{hispan}, and \textit{othrace}, so that there is no omitted variable bias in IV regression in Part (f).
+        
+        \section*{Code}
+            \inputcode{R}{./e12.1.R}
+
+        \section*{Output}
+            \inputcode{text}{./e12.1.out}
+    \end{solution}
+    
 \end{document}
