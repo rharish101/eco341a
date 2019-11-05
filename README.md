@@ -13,6 +13,7 @@ This is the repository for the assignments of the second part of ECO341A, offere
 ## Setup
 1. Download the Woolridge datasets from [here](https://l.messenger.com/l.php?u=https%3A%2F%2Fwww.cengage.com%2Faise%2Feconomics%2Fwooldridge_3e_datasets%2F&h=AT0Mxu-uk579W9aKmkaQXOE9aJNkT7S5ZFqJAzvqIp9sHfXxQrng7yL_9vhnlMAVZPrIAd4TycBfRueWHNr4tPKisORhWtOFOuHVo-NcszcioVCIs3J8lcChKeHEeQ).
 2. Extract the necessary datasets and capitalize the filenames (including the extension).
+3. Ensure that the following `R` packages are installed on the system `sem` and `foreign`.
 
 ## Instructions
 1. Change the working directory to the git root directory.
