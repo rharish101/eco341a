@@ -1,5 +1,4 @@
 require(foreign) 
-
 data <- read.dta("birthweight_smoking.dta") 
 
 # Part (a)
@@ -7,9 +6,7 @@ reg1 = lm(birthweight~smoker, data=data)
 cat("Part (a):\n")
 cat("Effect of smoking on birthweight: ",reg1$coefficients[2], "\n\n")
 
-
 # Part (b)
-
 # (i)
 reg2 = lm(birthweight~smoker+alcohol+nprevist, data=data)
 cat("Part (b):\n")
@@ -25,7 +22,7 @@ cat("(iii)\n")
 cat("Birthweight of Jane's child: ", reg2$coefficients[1] + reg2$coefficients[2]*1 + reg2$coefficients[3]*0 + reg2$coefficients[4]*8, "\n\n")
 
 cat("(iv)\n")
-cat("R2 : ", summary(reg2)$r.squared , "\n\n")
+cat("R2 : ", summary(reg2)$r.squared , "\n")
 cat("Adj-R2 : ", summary(reg2)$adj.r.squared , "\n\n")
 
 # Part (c)
