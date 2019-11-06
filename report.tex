@@ -27,13 +27,14 @@
 {Econometrics}
 {Assignment}
 
-\renewcommand{\thesubsection}{\roman{subsection}.}
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{(\roman{subsection})}
 
 \begin{document}
     \maketitle
 
     \begin{solution}[Wooldridge C6.9]
-        \section*{Part (i)}
+        \section{Part (i)}
             \begin{table}[H]
                 \caption{Coefficients}
                 \begin{tabularx}{\textwidth}{C C C C}
@@ -51,21 +52,21 @@
             \vspace{-5mm}
             $$ R^2 = 0.1398 $$
 
-        \section*{Part (ii)}
+        \section{Part (ii)}
             The limiting value for experience is 15.
             This makes sense, as after 15 years of experience, there is not much left to learn.
             Also, the player must have established his career, and thus gives more chances to his teammates.
 
-        \section*{Part (iii)}
+        \section{Part (iii)}
             This implies that better players must be spending less years in college basketball and more in league NBA.\@
             Thus, their values for `\texttt{coll}' will be less.
 
-        \section*{Part (iv)}
+        \section{Part (iv)}
             The p-value for the quadratic of age is 0.2699.
             Thus, the coefficient is not significant, and thus it is not needed.
             This matches with the intuition that, keeping experience and education constant, more age leads to less points, as older players' bodies get weaker.
 
-        \section*{Part (v)}
+        \section{Part (v)}
             \begin{table}[H]
                 \caption{Coefficients}
                 \begin{tabularx}{\textwidth}{C C C C}
@@ -84,22 +85,22 @@
             \vspace{-5mm}
             $$ R^2 = 0.4872 $$
 
-        \section*{Part (vi)}
+        \section{Part (vi)}
             For joint significance testing, using the F-statistic for the linear hypothesis, the p-value is 0.2912.
             This implies that once productivity and seniority are accounted for, age and education do not have significant effects on wages.
 
-        \section*{Code}
+        \section{Code}
             \inputcode{R}{./c6.9.R}
 
-        \section*{Output}
+        \section{Output}
             \inputcode{text}{./c6.9.out}
     \end{solution}
 
     \begin{solution}[Wooldridge C7.9]
-        \section*{Part (i)}
+        \section{Part (i)}
             The fraction of families eligible for the 401(k) plan is: 0.3921.
 
-        \section*{Part (ii)}
+        \section{Part (ii)}
             \begin{table}[H]
                 \caption{Coefficients}
                 \begin{tabularx}{\textwidth}{C C C C}
@@ -118,41 +119,40 @@
             \vspace{-5mm}
             $$ R^2 = 0.09428 $$
 
-        \section*{Part (iii)}
+        \section{Part (iii)}
             The coefficients for income and age are significant, but not for gender.
             This implies that 401(k) eligibility is independent of gender, but dependent on income and age.
 
-        \section*{Part (iv)}
+        \section{Part (iv)}
             There are no fitted values that are negative or greater than one.
 
-        \section*{Part (v)}
+        \section{Part (v)}
             It is predicted that 2,460 families are eligible for a 401(k) plan.
 
-        \section*{Part (vi)}
+        \section{Part (vi)}
             For the 5,638 families not eligible for a 401(k), 81.71\% are predicted to be ineligible.
             For the 3,637 families eligible for a 401(k), 39.29\% are predicted to be eligible.
 
-        \section*{Part (vii)}
+        \section{Part (vii)}
             The accuracy is not completely descriptive about the model's performance.
             From the values in the previous part, it seems the model is biased towards predicting ineligibility, which is not evident from the accuracy itself.
 
-        \section*{Part (viii)}
+        \section{Part (viii)}
             If a family has someone with an IRA, the estimated probability is higher by 0.0198.
             The p-value for the coefficient of `\texttt{pira}' is 0.1054.
             Hence, it is not statistically different from zero at the 10\% level of significance.
 
-        \section*{Code}
+        \section{Code}
             \inputcode{R}{./c7.9.R}
 
-        \section*{Output}
+        \section{Output}
             \inputcode{text}{./c7.9.out}
     \end{solution}
 
     \begin{solution}[Stock-and-Watson E6.1]
-        \section*{Part (a)}
-            The coefficient of smoker is $-253.23$ i.e. if a mother smokes during
+        \section{Part (a)}
+            The coefficient of smoker is $-253.23$ i.e.\ if a mother smokes during
             pregnancy it, the \textit{Birthweight} would decrease by $253.23$ units.
-
 
             \begin{table}[H]
                 \caption{Coefficients of Regression}
@@ -168,17 +168,17 @@
             \end{table}
             \vspace{-5mm}
 
-        \section*{Part (b)}
-            \subsection*{  (i)}
+        \section{Part (b)}
+            \subsection{}
             From the regression statistics we see that \textit{smoker} is correlated with \textit{alcohol} and \textit{nprevist} and \textit{alcohol} + \textit{nprevist} are determinants for \textit{Birthweight} so omitting
             them leads to  omitted variable bias in the regression estimated in (a).
 
-            \subsection*{ (ii)}
+            \subsection{}
             Yes there is a substantial change in the coefficient for \textit{smoking}.
             It increases from $-253.23$ to $-217.58$ in presence of \textit{nprevist} and \textit{alcohol}. Therefore, regression in Part(a)
             suffers from omitted variable bias.
 
-            \subsection*{(iii)}
+            \subsection{}
             We know,
             birthweight = 3051.25 - 217.58$\times$smoking - 30.49$\times$alcohol  + 34.07$\times$nprevist
 
@@ -186,17 +186,17 @@
 
             birthweight = 3051.25 - 217.58 $\times$ 1 - 30.49$\times$0  + 34.07$\times$ 8 = $3106.228 $ grams
 
-            \subsection*{(iv)}
+            \subsection{}
             $R^{2} = 0.0728503$ and $\bar{R}^{2}=0.07192191$.
             $R^{2}$ and $\bar{R}^{2}$  indicate the sample variance explained
             by the regressors.They are very similar because the added variables
             are significant and correlated.
 
-        \section*{Part (c)}
+        \section{Part (c)}
             By using the Frisch-Waugh theorem the coefficient of smoking comes out to be same as Part(b) i.e. 217.58.
 
-        \section*{Part (d)}
-            \subsection*{(i)}
+        \section{Part (d)}
+            \subsection{}
             \textit{Tripre1} is excluded from the regression to avoid perfect
             multicollinearity since \textit{Tripre1} = 1 only when  \textit{Tripre0},  \textit{Tripre2} and  \textit{Tripre3} are zero.
 
@@ -205,36 +205,50 @@
 
             \[ t1 = 1 - t0 -t2 -t3 \] and would lead to perfect multicollinearity.
 
-            \subsection*{(ii)}
+            \subsection{}
             Coefficient of tripre0 is -697.9687 which implies that child of a mother
             with zero prenatal visits will have birthweight of 697.9687 less than if she had any prenatal visits.
 
-            \subsection*{ (iii)}
+            \subsection{}
             Coefficient of tripre2 is -100.8373 which implies that child of a mother
             with first pre natal care in 2nd trimester will have birthweight of 100.8373 less.
 
             Coefficient of tripre3 is -136.9553  which implies that child of a mother
             with first pre natal care in 3rd trimester will have birthweight of 136.9553 less.
 
-            \subsection*{ (iv)}
+            \subsection{}
             The adjusted $\bar{R}^{2}$ is  0.04487327 which is less than Part(b) [0.07192191]. Therefore, the regression in (d) \textbf{DOES NOT} explain a larger fraction of the variance.
             in birth weight than the regression in (b)
 
-        \section*{Code}
+        \section{Code}
             \inputcode{R}{./e6.1.R}
 
-        \section*{Output}
+        \section{Output}
             \inputcode{text}{./e6.1.out}
     \end{solution}
 
     \begin{solution}[Stock-and-Watson E8.1]
-        \section*{Part (a)}
-            Average infant mortality rate for cities with lead pipes: 0.3812\par
-            Average infant mortality rate for cities with lead pipes: 0.4033\par
+        \section{Part (a)}
+            The average infant mortality rate for cities with lead pipes is 0.3812.
+            The average infant mortality rate for cities with lead pipes is 0.4033.
             As the p-value of the difference is 0.8841, we can say that it is not significant.
 
-        \section*{Part (b)}
+        \section{Part (b)}
             \subsection{}
+                \begin{table}[H]
+                    \caption{Coefficients of Regression}
+                    \begin{tabularx}{\textwidth}{C C C C}
+                        \toprule
+                        Feature & Estimate & Std. Error & p-Value \\
+                        \midrule
+                        (Intercept) &  0.9189 & 0.1745 & 4.2 $\times$ 10$^{-7}$ \\
+                        ph          & -0.0752 & 0.0243 & 0.0023 \\
+                        lead        &  0.4618 & 0.2212 & 0.0384 \\
+                        leadxph     & -0.0569 & 0.0304 & 0.0631 \\
+                        \bottomrule
+                    \end{tabularx}
+                \end{table}
+
                 The intercept represents the infant mortality rate when the pH is zero and there are no lead pipes.
                 The coefficient for \textit{pH} measures the increase in the mortality rate when the pH increases by one and lead pipes are not used.
                 The coefficient for \textit{Lead} measures the increase in the mortality rate when lead pipes are used and pH is 0.
@@ -251,15 +265,54 @@
                     \end{subfigure}
                 \end{figure}
 
-        \section*{Code}
+                As seen from the plots, the line for $Lead = 1$ has a slope different from the line for $Lead = 0$.
+                The difference in slopes arises because of the addition of the coefficient for \textit{Lead $\times$ pH} in the plot for $Lead = 1$.
+
+            \subsection{}
+                As the p-value of the coefficient for \textit{Lead} is 0.0023, \textit{Lead} has a statistically significant effect on infant mortality.
+
+            \subsection{}
+                Due to the inclusion of the parameter \textit{Lead $\times$ pH}, the effect of \textit{Lead} on infant mortality depends on \textit{pH}.
+                However, as the p-value of the coefficient of \textit{Lead $\times$ pH} is 0.0631, the dependence is not statistically significant.
+
+            \subsection{}
+                The average value of \textit{pH} in the sample is 7.3227, with a standard deviation of 0.6917.
+                At this \textit{pH} level, the estimated effect of \textit{Lead} on infant mortality is 0.0454.
+                If the \textit{pH} level is one standard deviation lower than the average level of \textit{pH} in the sample, the estimated effect of \textit{Lead} on infant mortality is 0.0847.
+                If the \textit{pH} level is one standard deviation higher than the average level of \textit{pH} in the sample, the estimated effect of \textit{Lead} on infant mortality is 0.0061.
+
+            \subsection{}
+                The 95\% confidence interval for the effect of \textit{Lead} on infant mortality when \textit{pH} = 6.5 is $[0.0305, 0.1539]$.
+
+        \section{Part (c)}
+            Regressing \textit{pH} on \textit{Hardness}, \textit{Temperature} and \textit{Precipitation}, which are some of the other variables in the data set, we get:
+
+            \begin{table}[H]
+                \caption{Coefficients of Regression}
+                \begin{tabularx}{\textwidth}{C C C C}
+                    \toprule
+                    Feature & Estimate & Std. Error & p-Value \\
+                    \midrule
+                    (Intercept)   &  7.5052 & 0.4051 &  < 2 $\times$ 10$^{-16}$ \\
+                    hardness      &  0.0027 & 0.0004 & 3.64 $\times$ 10$^{-9}$ \\
+                    temperature   &  0.0271 & 0.0083 & 1.31 $\times$ 10$^{-3}$ \\
+                    precipitation & -0.5472 & 0.0765 & 2.57 $\times$ 10$^{-11}$ \\
+                    \bottomrule
+                \end{tabularx}
+            \end{table}
+
+            From the p-values of the coefficients of regression, we can observe that the correlation of other variables with \textit{pH} is significant.
+            Therefore, we can conclude that the coefficient of \textit{pH} in the original regression, and thus the analysis in part (b), suffers from omitted variable bias.
+
+        \section{Code}
             \inputcode{R}{./e8.1.R}
 
-        \section*{Output}
+        \section{Output}
             \inputcode{text}{./e8.1.out}
     \end{solution}
 
     \begin{solution}[Stock-and-Watson E12.1]
-        \section*{Part (a)}
+        \section{Part (a)}
             Women with more than two children work less than women
             with two children by approximately $5.387$ weeks.
 
@@ -277,7 +330,7 @@
             \end{table}
             \vspace{-5mm}
 
-        \section*{Part (b)}
+        \section{Part (b)}
             Both \textit{morekids} and \textit{weeksworked} are choice
             variables. A women with a positive labor supply
             might also be a woman who is less likely to have an
@@ -285,11 +338,11 @@
             of women with fewer than two children is missing. So we cannot
             draw any conclusions.
 
-        \section*{Part (c)}
+        \section{Part (c)}
             Yes, the couples whose first two children are of the same sex more likely to have a third child. The log-odds from running a regression is $.287$
             therefore the real odds is $e^{.287}$ i.e. $1.33$, which is significant.
 
-        \section*{Part (d)}
+        \section{Part (d)}
             \textit{samesex} is a valid instrument because it satisfies two basic
             conditions,
             \begin{enumerate}
@@ -298,23 +351,23 @@
                 \item \textbf{Instrument exogeneity:} The correlation between residuals and \textit{samesex} should be zero. This is not exactly true as the corr is $.018$ but it is sufficiently close to zero.
             \end{enumerate}
 
-        \section*{Part (e)}
+        \section{Part (e)}
             No, \textit{samesex} is NOT a weak instrument because the F-statistic
             value is larger that 10 at 1237.219.
 
-        \section*{Part (f) }
+        \section{Part (f) }
             The fertility effect on labor supply is  -6.313 i.e. more 1 unit increase
             in fertility decreases labor supply by 6.313 weeks. This is statistically
             significant at 0.001 level. This effect is greater than what estimated in
             Part (a).
 
-        \section*{Part (g) }
+        \section{Part (g) }
             The coefficient changes from -6.23 to -5.82. This change is not significant because \textit{samesex} is not related to \textit{agem1}, \textit{black}, \textit{hispan}, and \textit{othrace}, so that there is no omitted variable bias in IV regression in Part (f).
 
-        \section*{Code}
+        \section{Code}
             \inputcode{R}{./e12.1.R}
 
-        \section*{Output}
+        \section{Output}
             \inputcode{text}{./e12.1.out}
     \end{solution}
 \end{document}
