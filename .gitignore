@@ -5,6 +5,8 @@ textfiles.zip
 *.DES
 *.des
 *.dta
+*.png
+*.xlsx
 *.aux
 *.fdb_latexmk
 *.fls

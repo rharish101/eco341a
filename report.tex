@@ -1,4 +1,6 @@
 \documentclass{./solution}
+\usepackage{graphicx}
+\usepackage{subcaption}
 
 \author{%
     Bhavishya Desai\\[-1mm]
@@ -24,6 +26,8 @@
 {ECO341A}
 {Econometrics}
 {Assignment}
+
+\renewcommand{\thesubsection}{\roman{subsection}.}
 
 \begin{document}
     \maketitle
@@ -221,6 +225,37 @@
 
         \section*{Output}
             \inputcode{text}{./e6.1.out}
+    \end{solution}
+
+    \begin{solution}[Stock-and-Watson E8.1]
+        \section*{Part (a)}
+            Average infant mortality rate for cities with lead pipes: 0.3812\par
+            Average infant mortality rate for cities with lead pipes: 0.4033\par
+            As the p-value of the difference is 0.8841, we can say that it is not significant.
+
+        \section*{Part (b)}
+            \subsection{}
+                The intercept represents the infant mortality rate when the pH is zero and there are no lead pipes.
+                The coefficient for \textit{pH} measures the increase in the mortality rate when the pH increases by one and lead pipes are not used.
+                The coefficient for \textit{Lead} measures the increase in the mortality rate when lead pipes are used and pH is 0.
+                The coefficient for \textit{Lead $\times$ pH} measures the additional increase in the mortality rate (apart from the coefficient for \textit{pH}) when the pH increases by one and lead pipes are used.
+
+            \subsection{}
+                \begin{figure}[H]
+                    \centering
+                    \begin{subfigure}{0.4\textwidth}
+                        \includegraphics[width=\textwidth]{./e8_1_plot0.png}
+                    \end{subfigure}
+                    \begin{subfigure}{0.4\textwidth}
+                        \includegraphics[width=\textwidth]{./e8_1_plot1.png}
+                    \end{subfigure}
+                \end{figure}
+
+        \section*{Code}
+            \inputcode{R}{./e8.1.R}
+
+        \section*{Output}
+            \inputcode{text}{./e8.1.out}
     \end{solution}
 
     \begin{solution}[Stock-and-Watson E12.1]
